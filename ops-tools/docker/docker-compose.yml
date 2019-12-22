@@ -1,0 +1,28 @@
+version: "3"
+networks:
+    docker-practice-net2:
+
+services:
+
+    postgreslin:
+        image: postgres:12.1
+        ports:
+            - "5401:5432"
+        networks:
+            - docker-practice-net2
+        volumes:
+            - "../../data/postgres:/var/lib/postgresql/data"
+            - "../../data/dump:/db-dump"
+        environment:
+            POSTGRES_PASSWORD: school
+            POSTGRES_USER: postgres
+            POSTGRES_DB: school
+
+    redislin:
+        image: redis:5.0
+        ports:
+            - "6301:6379"
+        networks:
+            - docker-practice-net2
+        
+            
