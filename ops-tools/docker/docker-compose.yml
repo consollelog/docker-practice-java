@@ -24,5 +24,19 @@ services:
             - "6301:6379"
         networks:
             - docker-practice-net2
-        
-            
+    app:
+        build: ./images/app/.
+   #         context: .
+   #         dockerfile: ./images/app/Dockerfile
+        ports:
+            - "8888:8080"
+        networks:
+            - docker-practice-net2
+        volumes:
+            - ../../:/app
+        depends_on:
+            - redislin
+            - postgreslin
+        links:
+            - postgreslin
+            - redislin

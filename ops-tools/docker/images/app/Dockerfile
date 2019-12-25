@@ -23,4 +23,4 @@ WORKDIR /app
 
 CMD ["mvn", "spring-boot:run"]
 
-EXPOSE 8888
+EXPOSE 8080
